@@ -115,11 +115,11 @@ public class Day8 {
         //Task 8
 //        System.out.println("Input k");
 //        int k=scanner.nextInt();
-//        if (k%3==0 || k%5==0 || k%8==0) {
-//            System.out.println("You can buy");
+//        if (k==7 || k==1 || k==2 || k==4 ) {
+//            System.out.println("You can not buy");
 //        }
 //        else {
-//            System.out.println("You can not buy");
+//            System.out.println("You can  buy");
 //        }
 
         //Task 9
