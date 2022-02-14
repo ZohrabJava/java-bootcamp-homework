@@ -258,7 +258,7 @@ public class Day10 {
 //        int y = scanner.nextInt();
 //        bank(x, p, y);
         //Task15
-        maxToo();
+//        maxToo();
         //Task16
 //        Random random=new Random();
 //        int n= random.nextInt(0,100);
