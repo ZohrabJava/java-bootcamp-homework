@@ -8,6 +8,10 @@ public class Employee {
     int age;
     char gender;
 
+    public Employee() {
+        this(10,"default","unknown",0,'m');
+    }
+
     public Employee(int id, String name, String department, int age, char gender) {
         this.id = id;
         this.name = name;
