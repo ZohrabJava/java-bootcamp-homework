@@ -127,24 +127,17 @@ public class Day10 {
     }
 
     //Task12
-    public static boolean fib(int n) {
+    public static int fib(int n) {
         int j;
-        for (int i = 2, k = 1; i <= n; j = i, i += k, k = j) {
+        int index=1;
+        for (int i = 1, k = 0; i <= n; j = i, i += k, k = j) {
             if (i == n) {
-                return true;
+                return index;
             }
+            index++;
         }
-        return false;
+        return -1;
     }
-
-    public static void operatorFib(int n) {
-        if (fib(n)) {
-            System.out.println(n * 3 / 4);
-        } else {
-            System.out.println("-1");
-        }
-    }
-
     //Task13
     public static void atlet(double x, double y) {
         int day = 1;
@@ -172,6 +165,9 @@ public class Day10 {
             if(n>max1){
                 max2=max1;
                 max1=n;
+            }
+            else if(n>max2 && n!=max1){
+                max2=n;
             }
         }while (n!=0);
         System.out.println(max2);
@@ -242,7 +238,7 @@ public class Day10 {
         //Task12
 //        System.out.println("Input Fib n>1");
 //        int n= scanner.nextInt();
-//        operatorFib(n);
+//        System.out.println(fib(n));
         //Task13
 //        System.out.println("Input x");
 //        double x= scanner.nextDouble();
@@ -258,7 +254,7 @@ public class Day10 {
 //        int y = scanner.nextInt();
 //        bank(x, p, y);
         //Task15
-//        maxToo();
+        maxToo();
         //Task16
 //        Random random=new Random();
 //        int n= random.nextInt(0,100);
