@@ -215,25 +215,29 @@ public class Day11 {
 
     //Task16
     public static void trianglA(int n) {
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <=i; j++) {
                 System.out.print("*");
             }
-            System.out.println();
+            if(i!=n-1) {
+                System.out.println();
+            }
         }
     }
 
     public static void trianglB(int n) {
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j + i < n; j++) {
                 System.out.print("*");
             }
-            System.out.println();
+            if(i!=n-1) {
+                System.out.println();
+            }
         }
     }
 
     public static void trianglC(int n) {
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (j < i) {
                     System.out.print(" ");
@@ -241,20 +245,24 @@ public class Day11 {
                     System.out.print("*");
                 }
             }
-            System.out.println();
+            if(i!=n-1) {
+                System.out.println();
+            }
         }
     }
 
     public static void trianglD(int n) {
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (i + j >= n) {
+                if (i + j >=n-1) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");
                 }
             }
-            System.out.println();
+            if(i!=n-1) {
+                System.out.println();
+            }
         }
 
     }
@@ -334,28 +342,28 @@ public class Day11 {
 //        int n= scanner.nextInt();
 //        matrix(n);
         //Task 16
-//        System.out.println("Input number");
-//        int n = scanner.nextInt();
-//        System.out.println("Input Variant a,b,c or d");
-//        char variant = scanner.next().charAt(0);
-//        switch (variant) {
-//            case 'a':
-//                trianglA(n);
-//                break;
-//            case 'b':
-//                trianglB(n);
-//                break;
-//            case 'c':
-//                trianglC(n);
-//                break;
-//            case 'd':
-//                trianglD(n);
-//                break;
-//            default:
-//                System.out.println("error");
-//                break;
-//
-//        }
+        System.out.println("Input number");
+        int n = scanner.nextInt();
+        System.out.println("Input Variant a,b,c or d");
+        char variant = scanner.next().charAt(0);
+        switch (variant) {
+            case 'a':
+                trianglA(n);
+                break;
+            case 'b':
+                trianglB(n);
+                break;
+            case 'c':
+                trianglC(n);
+                break;
+            case 'd':
+                trianglD(n);
+                break;
+            default:
+                System.out.println("error");
+                break;
+
+        }
 
 
     }
