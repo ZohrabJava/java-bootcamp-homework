@@ -4,6 +4,11 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Day14 {
+    public static boolean isVowel(char ch) {
+        return ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
+                ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
+
     //Task1
     public static int length(String str) {
         return str.length();
@@ -11,12 +16,15 @@ public class Day14 {
 
     //Task2
     public static char indexStr(String str, int index) {
+        if (index < 0 || index > str.length()) {
+            return ' ';
+        }
         return str.charAt(index);
     }
 
     //Task3
-    public static void containChar(String str, char ch) {
-        System.out.println(str.contains(ch + ""));
+    public static boolean containChar(String str, char ch) {
+        return str.contains(ch + "");
     }
 
     //Task4
@@ -24,7 +32,7 @@ public class Day14 {
         str = str.toUpperCase(Locale.ROOT);
         int sum = 0;
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == 'A' || str.charAt(i) == 'E' || str.charAt(i) == 'I' || str.charAt(i) == 'O' || str.charAt(i) == 'U') {
+            if (isVowel(str.charAt(i))) {
                 sum++;
             }
         }
@@ -67,43 +75,38 @@ public class Day14 {
     }
 
     //Task8
-    public static String palindrome(String str) {
+    public static boolean palindrome(String str) {
         for (int i = 0; i < str.length() / 2; i++) {
             if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
-                return " is not Palindrome";
+                return false;
             }
         }
-        return " is Palindrome";
+        return true;
     }
 
     //Task9
-    public static String checkBinStr(String str) {
+    public static boolean checkBinStr(String str) {
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) != '0' && str.charAt(i) != '1') {
-                return " is NOT a binary string";
+                return false;
             }
         }
-        return " is a binary string";
+        return true;
     }
 
     //Task10
-    public static String hex(String str) {
+    public static boolean hex(String str) {
         str = str.toUpperCase(Locale.ROOT);
         for (int i = 0; i < str.length(); i++) {
             if (!((str.charAt(i) >= '0' && str.charAt(i) <= '9') || (str.charAt(i) >= 'A' && str.charAt(i) <= 'F'))) {
-                return " is NOT a hex string";
+                return false;
             }
         }
-        return " is a hex string";
+        return true;
     }
 
     //Task11
-    public static String bin2Dec(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) != '0' && str.charAt(i) != '1') {
-                return "error: invalid binary string " + str;
-            }
-        }
+    public static int bin2Dec(String str) {
         int dec = 0;
         int a = 1;
         for (int i = str.length() - 1; i >= 0; i--) {
@@ -112,14 +115,15 @@ public class Day14 {
             }
             a *= 2;
         }
-        return "The equivalent decimal number for binary " + str + " is: " + dec;
+        return dec;
     }
 
     //Task12
     public static int duplicate(String str) {
         StringBuilder str2 = new StringBuilder();
+        boolean one,too;
         for (int i = 0; i < str.length(); i++) {
-            boolean one = false;
+             one = false;
             for (int j = i + 1; j < str.length(); j++) {
                 if (str.charAt(i) == str.charAt(j)) {
                     one = true;
@@ -127,14 +131,14 @@ public class Day14 {
                 }
             }
             if (one) {
-                boolean too = true;
+                too = false;
                 for (int j = 0; j < str2.length(); j++) {
                     if (str.charAt(i) == str2.charAt(j)) {
-                        too = false;
+                        too = true;
                         break;
                     }
                 }
-                if (too) {
+                if (!too) {
                     str2.append(str.charAt(i));
                 }
             }
@@ -144,11 +148,13 @@ public class Day14 {
 
     //Task13
     public static char duplicateCh(String str) {
+        boolean one;
         for (int i = 0; i < str.length(); i++) {
-            boolean one = false;
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(i) == str.charAt(j) && i != j) {
+             one = false;
+            for (int j = i+1; j < str.length(); j++) {
+                if (str.charAt(i) == str.charAt(j)) {
                     one = true;
+                    break;
                 }
             }
             if (!one) {
@@ -186,7 +192,7 @@ public class Day14 {
 //        String str= scanner.nextLine();
 //        System.out.println("Input char");
 //        char ch=scanner.nextLine().charAt(0);
-//        containChar(str,ch);
+//        System.out.println(containChar(str, ch));
         //Task4
 //        System.out.println("Input str");
 //        String str= scanner.nextLine();
@@ -208,19 +214,38 @@ public class Day14 {
         //Task8
 //        System.out.println("Input str");
 //        String str=scanner.nextLine();
-//        System.out.println(str+palindrome(str));
+//        if(palindrome(str)){
+//            System.out.println(str+" is  Palindrome");
+//        }
+//        else{
+//            System.out.println("is not Palindrome");
+//        }
         //Task9
 //        System.out.print ("Input binary number ");
 //        String str= scanner.nextLine();
-//        System.out.println(str+checkBinStr(str));
+//        if(checkBinStr(str)){
+//            System.out.println(str+" is a binary string");
+//        }
+//        else {
+//            System.out.println(str+" is NOT a binary string");
+//        }
         //Task10
 //        System.out.print ("Enter a hex string: ");
 //        String str= scanner.nextLine();
-//        System.out.println(str+hex(str));
+//        if(hex(str)){
+//            System.out.println(str+" is a hex string");
+//        }
+//        else {
+//            System.out.println(str+" is NOT a hex string");
+//        }
         //Task11
 //        System.out.print("Enter a Binary string:");
-//        String str=scanner.nextLine();
-//        System.out.println(bin2Dec(str));
+//        String str = scanner.nextLine();
+//        if (!checkBinStr(str)) {
+//            System.out.println("error: invalid binary string " + str);
+//        } else {
+//            System.out.println("The equivalent decimal number for binary " + str + " is: " + bin2Dec(str));
+//        }
         //Task12
 //        System.out.println("Input str");
 //        String str=scanner.nextLine();
