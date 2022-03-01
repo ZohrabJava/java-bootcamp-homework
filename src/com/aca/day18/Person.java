@@ -8,7 +8,7 @@ public class Person {
     private String gender;
     private String nationality;
 
-    public Person(String firstName,String lastName, String passportId, int age, String gender, String nationality) {
+    public Person(String firstName, String lastName, String passportId, int age, String gender, String nationality) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setPassportId(passportId);
@@ -18,7 +18,7 @@ public class Person {
     }
 
     public Person() {
-        this.firstName="Xcho";
+        this.firstName = "Xcho";
         this.lastName = "Karapetyan";
         this.passportId = "AN025122";
         this.age = 20;
@@ -31,11 +31,7 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        if(testRangeName(firstName,3,15)){
-            this.firstName = firstName;
-            return;
-        }
-        System.out.println("Wrong first Name "+firstName);
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -43,11 +39,7 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
-        if(testRangeName(lastName,6,20)){
-            this.lastName = lastName;
-            return;
-        }
-        System.out.println("Wrong last name "+lastName);
+        this.lastName = lastName;
     }
 
     public String getPassportId() {
@@ -55,31 +47,14 @@ public class Person {
     }
 
     public void setPassportId(String passportId) {
-        if(passportId==null || !(passportId.length()==8 &&( (passportId.substring(0,2).equals("AN")) && isNum(passportId.substring(2))))){
-            System.out.println("Wrong Passport Id "+passportId);
-            return;
-        }
         this.passportId = passportId;
     }
-    public boolean isNum(String str){{
-        for (int i = 0; i <str.length() ; i++) {
-            if(str.charAt(i)<'0' || str.charAt(i)>'9'){
-                return false;
-            }
-        }
-        return true;
-    }
 
-    }
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
-        if(age<18 ||age>99){
-            System.out.println("Wrong age "+age);
-            return;
-        }
         this.age = age;
     }
 
@@ -88,11 +63,6 @@ public class Person {
     }
 
     public void setGender(String gender) {
-        if(gender==null || (gender.compareToIgnoreCase("male") !=0 &&
-                gender.compareToIgnoreCase("female") !=0) ){
-            System.out.println("Wrong gender "+ gender);
-            return;
-        }
         this.gender = gender;
     }
 
@@ -103,16 +73,10 @@ public class Person {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
-    public boolean testRangeName(String name, int start,int end){
-        return name==null ||( name.length() >= start && name.length() <= end);
-    }
-    public void display(){
-        System.out.println("First name is "+firstName +",Last name is "+lastName+",Passport id is " +passportId+
-                ",Age is "+age+",Gender is "+gender+",Nationality is "+nationality);
+
+    public void display() {
+        System.out.println("First name is " + firstName + ",Last name is " + lastName + ",Passport id is " + passportId +
+                ",Age is " + age + ",Gender is " + gender + ",Nationality is " + nationality);
     }
 
-    public static void main(String[] args) {
-        Person an=new Person("Ando","Hovhannisyan","AN123456",20,"MALE","Russia");
-        an.display();
-    }
 }
