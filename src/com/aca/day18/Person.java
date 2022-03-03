@@ -9,12 +9,12 @@ public class Person {
     private String nationality;
 
     public Person(String firstName, String lastName, String passportId, int age, String gender, String nationality) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setPassportId(passportId);
-        this.setAge(age);
-        this.setGender(gender);
-        this.setNationality(nationality);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.passportId = passportId;
+        this.age = age;
+        this.gender = gender;
+        this.nationality = nationality;
     }
 
     public Person() {

@@ -1,8 +1,10 @@
 package com.aca.day18;
 
 public class PersonValidator {
-    public static boolean testRangeName(String name, int start,int end){
-        return name==null ||( name.length() >= start && name.length() <= end);
+    private PersonValidator() {
+    }
+    public static boolean testRangeName(String name, int start, int end){
+        return name!=null && ( name.length() >= start && name.length() <= end);
     }
     public static boolean passportIdValidator (String passportId ){
         return passportId != null && (passportId.length() == 8 && ((passportId.substring(0, 2).equals("AN")) && isNum(passportId.substring(2))));

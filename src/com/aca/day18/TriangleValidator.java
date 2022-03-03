@@ -1,6 +1,10 @@
 package com.aca.day18;
 
 public class TriangleValidator {
+    private TriangleValidator() {
+
+    }
+
     public static boolean rangeSide(double side) {
         return side >= 1 && side <= 20;
     }

@@ -1,6 +1,9 @@
 package com.aca.day18;
 
 public class StoreValidator {
+    private StoreValidator(){
+
+    }
     public static boolean workersValidator(int worker){
         return worker >= 2 && worker <= 50;
     }

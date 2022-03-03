@@ -9,10 +9,10 @@ public class Store {
     private String[] product;
 
     public Store(int countOfWorkers, String name, int phoneNumber, String[] product) {
-        this.setCountOfWorkers(countOfWorkers);
-        this.setName(name);
-        this.setPhoneNumber(phoneNumber);
-        this.setProduct(product);
+        this.countOfWorkers = countOfWorkers;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.product = product;
     }
 
     public int getCountOfWorkers() {
