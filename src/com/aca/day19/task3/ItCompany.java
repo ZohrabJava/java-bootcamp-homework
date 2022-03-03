@@ -4,9 +4,11 @@ public class ItCompany {
     protected int countOfEmployers;
     protected String companyName;
 
+
     public void account() {
         System.out.println("It company");
     }
+
     public ItCompany(int countOfEmployers, String companyName) {
         this.countOfEmployers = countOfEmployers;
         this.companyName = companyName;

@@ -1,16 +1,18 @@
 package com.aca.day19.task2;
 
-public class FinancialAccount extends TaxAccounting{
+public class FinancialAccount extends TaxAccounting {
     private int countOfEmployers;
-    private  String departmentName ;
-    public void account(){
+    private String departmentName;
+
+    @Override
+    public void account() {
         System.out.println("FinancialAccount");
     }
 
     public FinancialAccount(int countOfEmployers, String departmentName) {
-        super(countOfEmployers,departmentName);
+        super(countOfEmployers, departmentName);
         this.countOfEmployers = countOfEmployers;
-        this.departmentName=departmentName;
+        this.departmentName = departmentName;
     }
 
     @Override

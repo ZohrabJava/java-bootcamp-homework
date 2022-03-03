@@ -2,8 +2,10 @@ package com.aca.day19.task2;
 
 public class Accounting {
     private int countOfEmployers;
-    private String departmentName ;
-    public void account(){
+    private String departmentName;
+
+
+    public void account() {
         System.out.println("Accounting");
     }
 

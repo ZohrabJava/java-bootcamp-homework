@@ -6,6 +6,7 @@ public class FinancialAccount extends TaxAccounting {
         super(countOfEmployers1, departmentName1);
     }
 
+    @Override
     public void account() {
         System.out.println("FinancialAccount");
     }

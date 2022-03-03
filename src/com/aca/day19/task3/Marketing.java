@@ -5,6 +5,7 @@ public class Marketing extends ItCompany {
         super(countOfEmployers, companyName);
     }
 
+    @Override
     public void account() {
         System.out.println("Marketing");
     }
