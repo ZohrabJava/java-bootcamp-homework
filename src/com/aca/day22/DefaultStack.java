@@ -9,16 +9,18 @@ public class DefaultStack implements Stack {
         this.nums = new int[MAX_SIZE];
     }
     public void printStack(){
+
         System.out.print("[ ");
         for (int i = 0; i <this.index ; i++) {
             System.out.print(nums[i]+" ");
         }
         System.out.print("]");
         System.out.println();
+
     }
 
     @Override
-    public int pop() {
+    public  int pop() {
         index--;
         if (index < 0) {
             throw new EmptyStackException("Stack is empty");

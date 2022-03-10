@@ -3,26 +3,26 @@ package com.aca.day22;
 import java.util.Scanner;
 
 public class task1 {
-    public static boolean convertExaption(String input){
+    public static int convertExaption(){
         Scanner scanner=new Scanner(System.in);
         int a;
-        try {
-            a=Integer.parseInt(input);
-        }catch (NumberFormatException e){
-            System.out.println("Eror");
-            return true;
+        String input="";
+        while(true){
+            System.out.println("Input num");
+            input=scanner.nextLine();
+            try {
+                a=Integer.parseInt(input);
+                break;
+            }catch (NumberFormatException e){
+                System.out.println("Eror");
+            }
+
         }
-        System.out.println(a);
-        return false;
+        return a;
     }
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        String input="";
-        int a;
-        input=scanner.nextLine();
-        while(convertExaption(input)){
-            input=scanner.nextLine();
-        }
+        int a=convertExaption();
+        System.out.println("Input is true "+ a);
 
     }
 }
