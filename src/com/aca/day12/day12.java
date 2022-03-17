@@ -200,12 +200,17 @@ public class day12 {
     //Task14
     public static void removeIndex(int size, int index) {
         int[] arr = inputArr(size);
-        for (int i = index; i < size - 1; i++) {
-            arr[i] = arr[i + 1];
+        if(index>=0 && index<arr.length){
+            for (int i = 0; i < size - 1; i++) {
+                if(i>=index){
+                    arr[i]=arr[i+1];
+                }
+                System.out.print(arr[i] + " ");
+            }
+        }else{
+            printArray(arr);
         }
-        for (int i = 0; i < size - 1; i++) {
-            System.out.print(arr[i] + " ");
-        }
+
     }
 
     //Task15
@@ -216,6 +221,7 @@ public class day12 {
             for (int j = 0; j < size; j++) {
                 if (arr[i] == arr[j] && i != j) {
                     print = false;
+                    break;
                 }
             }
             if (print) {
@@ -239,7 +245,6 @@ public class day12 {
         }
         printArray(arr);
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
