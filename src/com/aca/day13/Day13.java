@@ -192,8 +192,9 @@ public class Day13 {
         printArray(arr);
 
     }
+
     //Task10
-    public static void spiralNum(int size){
+    public static void spiralNum(int size) {
         int n = size * 2 + 1;
         int[][] arr = new int[n][n];
         int k = 0;
@@ -221,6 +222,15 @@ public class Day13 {
         }
         arr[size][size] = k;
         printArray(arr);
+    }
+
+    public static void print(int[][] arr, int n, int m) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) {
@@ -268,5 +278,24 @@ public class Day13 {
 //        System.out.println("Input N");
 //        int size = scanner.nextInt();
 //        spiralNum(size);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[][] arr = new int[n][m];
+        inputArray(arr, n, m);
+        int count = 0;
+        for (int i = n - 1, indexI = 0; i >= 0; i--, indexI++) {
+            for (int j = m - 1, indexJ = 0; j >= 0; j--, indexJ++) {
+                int k = arr[indexI][indexJ];
+                arr[indexI][indexJ] = arr[i][j];
+                arr[i][j] = k;
+                count++;
+                if (count <= (n * m) / 2 ) {
+                    print(arr,n,m);
+                    return;
+                }
+            }
+        }
+
     }
+
 }
