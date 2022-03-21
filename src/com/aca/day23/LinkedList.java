@@ -1,6 +1,8 @@
 package com.aca.day23;
 
-public class LinkedList implements List {
+import java.util.Iterator;
+
+public class LinkedList implements List  {
     int size;
     Node head;
 
@@ -8,6 +10,24 @@ public class LinkedList implements List {
 
     }
 
+    @Override
+    public Iterator<Integer> iterator() {
+        return new LinkedListIterator();
+    }
+
+    public class LinkedListIterator implements Iterator<Integer>{
+        Node current=head;
+        @Override
+        public boolean hasNext() {
+            return current!=null;
+        }
+        @Override
+        public Integer next() {
+           Integer returnVal=current.val;
+           current=current.next;
+           return returnVal;
+        }
+    }
     class Node {
         int val;
         Node next;
@@ -23,6 +43,7 @@ public class LinkedList implements List {
 
 
     }
+
 
     @Override
     public int size() {
@@ -140,5 +161,10 @@ public class LinkedList implements List {
         System.out.println(li.toString());
         li.delete(3);
         System.out.println(li.toString());
+
+        for(Integer i : li){
+            System.out.println(i);
+        }
+        //Colection API Aray list,
     }
 }

@@ -1,6 +1,8 @@
 package com.aca.day23;
 
-public interface List {
+import java.util.Iterator;
+
+public interface List extends Iterable<Integer> {
     int size();
     boolean isEmpty();
     int get(int index);
