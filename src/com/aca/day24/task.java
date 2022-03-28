@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+
 public class task {
     //Task1
     public static boolean duplicat(int[] arr) {
@@ -118,24 +119,39 @@ public class task {
         }
         return '-';
     }
-    //Task5
+   // Task5
     public static int charakters(String str) {
         Map <Character,Integer>map=new HashMap<>();
         int max=0;
         int start=0;
+        char ch;
         for (int j=0;j<str.length();j++) {
-            if(j-start>max){
-                max=j-start;
+            ch= str.charAt(j);
+            if (map.containsKey(ch)){
+                start=Math.max(start,map.get(ch)+1);
             }
-            if (map.containsKey(str.charAt(j))){
-                    start++;
-                    j=start;
-                   map.clear();
-            }
-            map.put(str.charAt(j), j);
+            map.put(ch, j);
+            max=Math.max(max,j-start+1);
         }
        return max;
     }
+//    public static int charakters(String str) {
+//        Map <Character,Integer>map=new HashMap<>();
+//        int max=0;
+//        int start=0;
+//        for (int j=0;j<str.length();j++) {
+//            if(j-start>max){
+//                max=j-start;
+//            }
+//            if (map.containsKey(str.charAt(j))){
+//                start++;
+//                j=start;
+//                map.clear();
+//            }
+//            map.put(str.charAt(j), j);
+//        }
+//        return max;
+//    }
 
     public static void main(String[] args) {
         //Task1
